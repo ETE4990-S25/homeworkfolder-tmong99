@@ -19,7 +19,12 @@ class Student(Person):
             "email": self.email,
             "student ID": self.studentID
         }
-
+    
+    def save_to_json(self, filename):
+        with open(filename, 'w') as file:
+            json.dump(self.write_dict(), file, indent=4)
+        print(f"Data saved to {filename}")
+'''
     @classmethod
     def save_to_json(cls, student_instance, file_name="student_data.json"):
         # Try reading the existing data from the file
@@ -38,3 +43,4 @@ class Student(Person):
 
         print(f"Data for {student_instance.name} has been saved.")
 
+'''

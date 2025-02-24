@@ -1,26 +1,6 @@
-[
-    {
-        "name": "Jim",
-        "age": 20,
-        "email": "Jim_is_cool@gmail.com",
-        "student ID": "12345"
-    },
-    {
-        "name": "Nate",
-        "age": 21,
-        "email": "Nate_is_cool@gmail.com",
-        "student ID": "12346"
-    },
-    {
-        "name": "Jim",
-        "age": 20,
-        "email": "Jim_is_cool@gmail.com",
-        "student ID": "12345"
-    },
-    {
-        "name": "Nate",
-        "age": 21,
-        "email": "Nate_is_cool@gmail.com",
-        "student ID": "12346"
-    }
-]
+{
+    "name": "Jim",
+    "age": 20,
+    "email": "Jim_is_cool@gmail.com",
+    "student ID": "12345"
+}
