@@ -20,6 +20,16 @@ class Student(Person):
 
         }
 
-    def save_to_json(self, file_name):
-        with open(file_name, 'w') as file:
-            json.dump(self.write_dict(), file, indent = 4)
+    def save_to_json(cls, student_instance, file_name = "data.json"):
+        try:    
+            with open(file_name, 'r') as file:
+                data = json.load(file)
+        except (FileNotFoundError, json.JSONDecodeError):
+            data = []
+        
+        data.append(student_instance.write_dict())
+
+        with open(file_name, "w") as file:
+            json.dump(data, file, indent = 4)
+
+        print(f"{student_instance}'s data has been saved")
