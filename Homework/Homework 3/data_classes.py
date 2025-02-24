@@ -12,24 +12,29 @@ class Student(Person):
         self.studentID = studentID
 
     def write_dict(self):
-        return{
+        # Return a dictionary representing the student instance
+        return {
             "name": self.name,
             "age": self.age, 
             "email": self.email,
             "student ID": self.studentID
-
         }
 
-    def save_to_json(cls, student_instance, file_name = "data.json"):
+    @classmethod
+    def save_to_json(cls, student_instance, file_name="student_data.json"):
+        # Try reading the existing data from the file
         try:    
             with open(file_name, 'r') as file:
                 data = json.load(file)
         except (FileNotFoundError, json.JSONDecodeError):
-            data = []
-        
+            data = []  # Start with an empty list if no file exists or file is empty
+
+        # Append the student data to the list
         data.append(student_instance.write_dict())
 
+        # Write the updated data back to the file
         with open(file_name, "w") as file:
-            json.dump(data, file, indent = 4)
+            json.dump(data, file, indent=4)
 
-        print(f"{student_instance}'s data has been saved")
+        print(f"Data for {student_instance.name} has been saved.")
+
