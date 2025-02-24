@@ -8,7 +8,7 @@ class Person (object):
 
 class Student(Person):
     def __init__(self, name, age, email, studentID):
-        super().__init__(self, name, age, email)
+        super().__init__(name, age, email)
         self.studentID = studentID
 
     def write_dict(self):
