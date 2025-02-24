@@ -1,6 +1,6 @@
 {
     "name": "Jim",
-    "age": 20,
+    "age": "20",
     "email": "Jim_is_cool@gmail.com",
     "student ID": "12345"
 }
