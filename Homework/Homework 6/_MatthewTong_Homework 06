@@ -1,0 +1,56 @@
+# Lambda function to determine if a number is even or odd
+even_or_odd = lambda x: "even" if x % 2 == 0 else "odd"
+
+print(even_or_odd(6)) # even number
+print(even_or_odd(7)) # odd number
+print(even_or_odd(int(input("Enter a number to determine even or odd"))))
+
+# lambda function to sum a list of numbers using reduce()
+from functools import reduce
+
+sum_list = lambda lst: reduce(lambda x, y: x + y, lst) # reduce adds the items of the list cumulatively
+
+num_list = [1, 2, 3, 4, 5, 6, 7]
+
+sum = sum_list(num_list)
+
+print(sum)
+
+# Lambda Function to Sort a List of Numbers
+num_list = [4, 6, 9, 5, 8, 1, 7, 3, 2, 10]
+
+sorted_list = sorted(num_list, key = lambda x : x)
+
+print(sorted_list)
+
+# Lambda function to filter the even functions from the list
+num_list = [4, 6, 9, 5, 8, 1, 7, 3, 2, 10]
+
+even_numbers = list(filter(lambda x : x % 2 == 0, num_list))
+
+print(even_numbers)
+
+# Lambda function to square list contents using map()
+num_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+square_num = list(map(lambda x : x ** 2, num_list))
+
+print(square_num)
+
+# Lambda function to create a dictionary from a list
+
+fruits = ['apples', 'bananas', 'oranges']
+
+# enumerate the map by assigning x[0] to the index and x[1] to the value
+fruits_dict = dict(map(lambda x : (x[0], x[1]), enumerate(fruits))) 
+
+print(fruits_dict)
+
+# Lambda function to concatenate the string values from 2 lists
+
+first_name = ['Andrew', 'Bob', 'Nate']
+last_name = ['Johnson', 'Smith', 'Thompson']
+
+full_name = list(map(lambda x : f"{x[0]} {x[1]}", zip(first_name, last_name)))
+
+print(full_name)
