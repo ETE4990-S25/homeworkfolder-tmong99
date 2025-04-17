@@ -1,39 +1,32 @@
 # Matthew Tong Lab 9
 import logging
 import logging.handlers
+from datetime import datetime
 
-# Logging Configuration
+# stream handler
+stream_handler = logging.StreamHandler()
+stream_handler.setLevel(logging.INFO)
+
+# Configure Logging
 logging.basicConfig(
-    filename = 'my_sample_app.log',
-    level = logging.INFO,
-    format = '%(asctime)s - %(message)',
-    datefmt = '%H:%M:%S'
+    filename = 'sample.log',
+    format = '%(asctime)s | %(levelname)s | %(filename)s | %(message)s',
+    level = logging.INFO
 )
 
-debugLog = logging.getLogger("SystemConfiguredLogger")
+# Console Logging
+console = logging.StreamHandler()
+console.setLevel(logging.ERROR)
 
-debugLog.log(logging.CRITICAL, "PC WILL BLOW UP")
+formatter = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s')
+console.setFormatter(formatter)
+logging.getLogger("").addHandler(console)
 
-debugLog.critical("There is no more disk space")
-debugLog.error("File Not Found")
-debugLog.warning("Low System Memory")
-debugLog.info("Failed Attempted Login")
-
-# Logging to Config File
-logger = logging.getLogger()
-
-
-logger.addHandler(
-    logging.handlers.TimedRotatingFileHandler(
-        filename = "archived_log.log",
-        when = "D",
-        backupCount = 3
-    )
-)
-
-# Logging to Console
-
-
+logging.debug('debug')
+logging.info('info')
+logging.warning('warning')
+logging.error('error')
+logging.exception('exp')
 
 
 
