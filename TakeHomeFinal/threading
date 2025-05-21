@@ -1,0 +1,12 @@
+import threading
+from downloader import download_xml
+from queue import Queue
+
+task_queue = Queue()
+
+def threader():
+    while not task_queue.get():
+        currency = task_queue.get()
+        print(f"Thread {threading.current_thread().name} is processing {currency}")
+        download_xml(currency)
+        task_queue.task_done()

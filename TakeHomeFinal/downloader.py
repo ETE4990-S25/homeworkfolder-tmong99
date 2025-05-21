@@ -17,6 +17,8 @@ def download_xml(base, date):
         file_path = os.path.join("historical_currency_data", "latest.xml")
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(base_data.text)
+        
+        print(f"xml for {base} saved at {file_path}")
 
     except Exception as e:
         print(f"[ERROR] Failed for currency {base}: {e}")
